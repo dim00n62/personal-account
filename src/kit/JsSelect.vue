@@ -104,7 +104,7 @@ export default {
       background: white;
       border-radius: 25px;
       padding: 8px 8px 8px 24px;
-      min-width: 56px;
+      min-width: 100px;
       cursor: pointer;
     }
 
@@ -120,9 +120,9 @@ export default {
     }
 
     &__item {
-      padding: 0px 16px;
+      padding: 4px 16px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 20px;
       cursor: pointer;
 

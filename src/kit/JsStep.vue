@@ -33,6 +33,7 @@ export default {
     align-items: center;
     font-weight: bold;
     color: var(--disabled-text-color);
+    cursor: pointer;
 
     &__number {
       border-radius: 100%;

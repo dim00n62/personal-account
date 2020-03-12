@@ -3,7 +3,6 @@
     <div class="persona-account-loading">
       <h1 v-if="title" v-text="title"/>
       <h2 v-if="message" v-text="message"/>
-
       <js-loading/>
     </div>
   </js-dialog>
@@ -22,14 +21,6 @@ export default {
       type: String,
       default: ''
     }
-  },
-
-  mounted() {
-    // TODO
-    setTimeout(() => {
-      this.$router.push({ name: 'home' });
-      this.close();
-    }, 2000);
   },
 
   methods: {

@@ -1,6 +1,9 @@
 <template>
   <button
     class="js-button"
+    :class="{
+      [`js-button--${type}`]: type
+    }"
     v-bind="$attrs"
     v-on="$listeners"
   ><slot/></button>
@@ -8,7 +11,14 @@
 
 <script>
 export default {
-  name: 'JsButton'
+  name: 'JsButton',
+
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
+  }
 };
 </script>
 
@@ -27,12 +37,31 @@ export default {
     line-height: 40px;
     color: white;
 
-    &:hover {
+    &:disabled {
+      background-color: grey;
+      cursor: default;
+    }
+
+    &:hover:not(:disabled) {
       background-color: darken($button-bg, 10%);
     }
 
-    &:active {
+    &:active:not(:disabled) {
       background-color: darken($button-bg, 15%);
+    }
+
+    &--secondary {
+      $button-bg: #F5F6FA;
+      background-color: $button-bg;
+      color: var(--main-text-color);
+
+      &:hover:not(:disabled) {
+        background-color: darken($button-bg, 10%);
+      }
+
+      &:active:not(:disabled) {
+        background-color: darken($button-bg, 15%);
+      }
     }
   }
 </style>

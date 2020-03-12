@@ -10,8 +10,21 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Entrance'
+  name: 'Entrance',
+
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
+  },
+  created() {
+    if (this.loggedIn) {
+      this.$router.push({ name: 'home' });
+    }
+  }
 };
 </script>
 
@@ -27,6 +40,7 @@ export default {
       align-items: center;
       justify-content: center;
       background-color: var(--main-bg-color);
+      overflow: hidden;
     }
 
     &__form {
@@ -36,8 +50,7 @@ export default {
       justify-content: center;
       flex-direction: column;
       color: var(--main-text-color);
+      overflow: scroll;
     }
-
-
   }
 </style>
